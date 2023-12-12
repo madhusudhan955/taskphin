@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonComponent from "../../components/ButtonComponent";
 import CardComponent from "../../components/CardComponent";
 import PopupComponent from "../../components/PopupComponent";
+import { CREATE_A_JOB } from "../../constents";
 import {
   createJobAsyncAction,
   deleteJobAsyncAction,
@@ -63,7 +64,7 @@ function HomePage() {
   }, [dispatch]);
   return (
     <div className="bg-cardGray p-3">
-      <ButtonComponent text={"Create A Job"} onClickHandler={openPopUp} />
+      <ButtonComponent text={CREATE_A_JOB} onClickHandler={openPopUp} />
       <PopupComponent isOpen={isOpen} onClose={onCloseHandler}>
         {step === 1 ? (
           <Step1Component onNextHandler={onNextHandler} formData={formData} />
