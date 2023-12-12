@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   homeReduxState: homeReducer,
   globalReduxState: globalReducer,
 });
+
 const Store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default Store;

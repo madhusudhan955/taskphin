@@ -17,16 +17,20 @@ function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({});
   const [step, setStep] = useState(1);
+
   const dispatch = useDispatch();
   const { jobs } = useSelector((state) => state.homeReduxState);
+
   const openPopUp = useCallback(() => {
     setIsOpen(true);
   }, []);
+
   const onCloseHandler = useCallback(() => {
     setFormData({});
     setStep(1);
     setIsOpen(false);
   }, []);
+
   const onNextHandler = useCallback(
     (data) => {
       setFormData({ ...formData, ...data });
@@ -34,6 +38,7 @@ function HomePage() {
     },
     [formData, step]
   );
+
   const onSaveHandler = useCallback(
     (data) => {
       const newData = { ...formData, ...data };
@@ -48,20 +53,24 @@ function HomePage() {
     },
     [formData, dispatch]
   );
+
   const onEditHandler = (data) => {
     setFormData(data);
     setStep(1);
     setIsOpen(true);
   };
+
   const onDeleteHandler = useCallback(
     (id) => {
       dispatch(deleteJobAsyncAction(id));
     },
     [dispatch]
   );
+
   useEffect(() => {
     dispatch(getJobsAsyncAction());
   }, [dispatch]);
+
   return (
     <div className="bg-cardGray p-3">
       <ButtonComponent text={CREATE_A_JOB} onClickHandler={openPopUp} />

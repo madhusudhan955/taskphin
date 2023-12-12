@@ -8,8 +8,9 @@ export const getJobsAction = (data) => {
     payload: data,
   };
 };
+
 export const getJobsAsyncAction = () => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(startLoadingAction());
     try {
       apiServices({ url: "/job" }).then((res) => {
@@ -26,8 +27,9 @@ export const getJobsAsyncAction = () => {
     }
   };
 };
+
 export const createJobAsyncAction = (data) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(startLoadingAction());
     try {
       apiServices({ url: "/job", data, method: "post" }).then((res) => {
@@ -44,8 +46,9 @@ export const createJobAsyncAction = (data) => {
     }
   };
 };
+
 export const updateJobAsyncAction = (data) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(startLoadingAction());
     try {
       apiServices({ url: `/job/${data._id}`, data, method: "put" }).then(
@@ -64,8 +67,9 @@ export const updateJobAsyncAction = (data) => {
     }
   };
 };
+
 export const deleteJobAsyncAction = (id) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(startLoadingAction());
     try {
       apiServices({ url: `/job/${id}`, method: "delete" }).then((res) => {

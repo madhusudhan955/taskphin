@@ -3,6 +3,18 @@ import { NETFLIX_ICON } from "../assets";
 import ButtonComponent from "./ButtonComponent";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import {
+  APPLY_NOW,
+  DELETE,
+  EDIT,
+  EMPLOYEES,
+  EXPERIENCE,
+  EXTERNAL_APPLY,
+  INR,
+  MONTH,
+  TIME,
+  YEARS,
+} from "../constents";
 function CardComponent({
   data,
   onEditHandler,
@@ -45,35 +57,33 @@ function CardComponent({
               </div>
             </div>
             <div className="pb-1">
-              <div className="text-base font-normal text-fontSub">
-                {"Part-Time(9.00 am - 5.00 pm IST)"}
-              </div>
+              <div className="text-base font-normal text-fontSub">{TIME}</div>
             </div>
             <div className="pb-1">
               <div className="text-base font-normal text-fontSub">
-                {`Experience (${experience.minimum || 0} - ${
+                {`${EXPERIENCE} (${experience.minimum || 0} - ${
                   experience.maximum || 0
-                } Years)`}
+                } ${YEARS})`}
               </div>
             </div>
             <div className="pb-1">
               <div className="text-base font-normal text-fontSub">
-                INR (&#8377;)
+                {INR} (&#8377;)
                 {`${salary.minimum?.toLocaleString() || 0} - ${
                   salary.maximum?.toLocaleString() || 0
-                } / Month`}
+                } / ${MONTH}`}
               </div>
             </div>
             <div className="pb-3">
               <div className="text-base font-normal text-fontSub">{`51-${
                 totalEmployee || 0
-              } employees`}</div>
+              } ${EMPLOYEES}`}</div>
             </div>
             <div className="flex gap-3">
               {applyType === "quickApply" ? (
-                <ButtonComponent text={"Apply Now"} />
+                <ButtonComponent text={APPLY_NOW} />
               ) : (
-                <ButtonComponent text={"External Apply"} variant="outlined" />
+                <ButtonComponent text={EXTERNAL_APPLY} variant="outlined" />
               )}
             </div>
           </div>
@@ -83,13 +93,13 @@ function CardComponent({
             <FaEdit
               size={30}
               className="fill-primary hover:cursor-pointer"
-              title="Edit"
+              title={EDIT}
               onClick={() => onEditHandler(data)}
             />
             <MdDeleteForever
               size={37}
               className="fill-fontError hover:cursor-pointer"
-              title="Delete"
+              title={DELETE}
               onClick={() => onDeleteHandler(_id)}
             />
           </div>

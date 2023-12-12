@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <PopupComponent isOpen={isLoading} isLoader={true}>
-        <div className="border-t-4 border-blue-500 border-solid rounded-full animate-spin w-16 h-16"></div>
+        <div className="border-t-4 border-primary border-solid rounded-full animate-spin w-16 h-16"></div>
       </PopupComponent>
       <MainRoutes />
     </div>

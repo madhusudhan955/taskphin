@@ -5,6 +5,7 @@ export const startLoadingAction = () => {
     type: START_LOADING,
   };
 };
+
 export const stopLoadingAction = () => {
   return {
     type: STOP_LOADING,
